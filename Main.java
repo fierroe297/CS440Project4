@@ -25,7 +25,6 @@ public class Main {
                 int gender = rand.nextInt(2);
                 
                 OnePerson person = new OnePerson(count, gender, time);
-                System.out.println(count);
                 
                } 
             }
@@ -34,20 +33,42 @@ public class Main {
             }
             if(opt == 3){
                 int count = 0;
+                int[][] arr = new int[20][4];
                 for(int i = 0; i <= 19; i++){
                  count++;
                  Random rand = new Random();
                  Random rand2 = new Random();
-                 int time = rand2.nextInt((8 - 3)+1) + 3;
+                 int UsedTime = rand2.nextInt((8 - 3)+1) + 3;
                  int gender = rand.nextInt(2);
+                     
+                    for(int b = 0; b <= 3; b++){
+                        if(b == 0){
+                            arr[i][b] = 0;
+                        }
+                        if(b == 1){
+                            arr[i][b] = count; 
+                        }
+                        if(b == 2){
+                            arr[i][b] = gender;
+                        }
+                        if(b == 3){
+                            arr[i][b] = UsedTime;
+                        }
+                        
+                    }
                  
-                 OnePerson person = new OnePerson(count, gender, time);
-                 int[][] arr = new int[20][];
-                 
-                 System.out.println(count);
-
+                
+                }
+                 for(int a = 0; a <= 19; a++){
+                    for(int b = 0; b<= 3; b++){
+                        System.out.print(arr[a][b] + " ");
+                        
+                    }
+                    System.out.println();
+                
                  
                 }
+            
 
 
             }
