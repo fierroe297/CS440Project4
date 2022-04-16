@@ -1,6 +1,10 @@
-import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
+
+import javax.lang.model.util.ElementScanner14;
 
 public class OnePerson {
+
+    private static ReentrantLock mutex = new ReentrantLock();
     
 
     public OnePerson(int id, int gender, int time){
@@ -9,18 +13,36 @@ public class OnePerson {
         Depart(id, gender);
     }
     
-    private void Arrive(int id, int gender) {
-        
+    static String Arrive(int id, int gender) {
+        String tempSexString = " ";
+        try{
+            mutex.lock();
+            if(gender == 0){
+                tempSexString = "M";
+            } 
+            if(gender == 1){
+                tempSexString = "F";
+            }
+        }finally{
+            mutex.unlock();
+        }
+        return tempSexString;
         
     }
     
-    private void UseFacilities(int id, int gender, int time) {
-        
+    int UseFacilities(int id, int gender, int time) {
+        int totalTime = 0;
+
+
+
+        return totalTime;
+
     }
 
     
-    private void Depart(int id, int gender) {
+    boolean Depart(int id, int gender) {
         
+        return true;
     
     }
 
